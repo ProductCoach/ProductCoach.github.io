@@ -29,7 +29,7 @@
                     </ul>
 
                     <ul class="secondary-nav">
-                        <li class="contact-me-cta"><a href="#">Contact Me</a></li>
+                        <li class="contact-me-cta"><a href="#name">Contact Me</a></li>
                     </ul>
                 </nav>
 
@@ -46,7 +46,7 @@
         </div>
         
         <div class="hero-cta">
-            <a href="#" class="primary-cta">
+            <a href="#name" class="primary-cta">
                 <img src="images/phone-call.png" alt="phone icon"> Let's chat
             </a>
             <a href="#" class="projects-cta">
@@ -222,6 +222,21 @@
             <li><img src="images/instagram.png" alt="instagram logo"><a href="https://instagram.com/faizdarvesh/" target="_blank">/faizdarvesh</a></li>
         </ul>
     </section>
+
+
+    <script>
+        const mobileBtn = document.getElementById('mobile-cta')
+            nav = document.querySelector('nav')
+            mobileBtnExit = document.getElementById('mobile-exit')
+
+        mobileBtn.addEventListener('click', () => {
+            nav.classList.add('menu-btn');
+        })
+
+        mobileBtnExit.addEventListener('click', () => {
+            nav.classList.remove('menu-btn');
+        })
+    </script>
     
 </body>
 </html>

@@ -28,6 +28,44 @@ nav {
   display: none;
 }
 
+nav.menu-btn {
+  display: block;
+  position: fixed;
+  z-index: 999;
+  width: 50%;
+  right: 0;
+  top: 0;
+  background: #304B82;
+  opacity: 90%;
+  height: 100vh;
+  padding: 1em;
+}
+
+nav.menu-btn ul.primary-nav {
+  margin-top: 5em;
+  display: block;
+}
+
+nav.menu-btn .mobile-menu-exit {
+  float: right;
+  margin: 0.5em;
+  cursor: pointer;
+  width: 10%;
+}
+
+nav.menu-btn li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: .8em;
+  font-size: 1.1em;
+  text-align: left;
+}
+
+nav.menu-btn li a:hover {
+  font-weight: bold;
+}
+
 .mobile-menu {
   float: right;
   margin: 0.5em;
@@ -722,7 +760,6 @@ section.social-media li a:hover {
     margin: 0 2em 0 0;
   }
   section.experience {
-    display: inline-block;
     float: right;
     margin-top: 7.3em;
     margin-right: 15%;
@@ -886,7 +923,6 @@ section.social-media li a:hover {
     margin: 0 2em 0 0;
   }
   section.experience {
-    display: inline-block;
     float: right;
     margin-top: 7.3em;
     margin-right: 20%;
@@ -1018,6 +1054,10 @@ section.social-media li a:hover {
   section.experience .download-cv-cta {
     width: 200px;
     margin-left: 3em;
+  }
+  section.contact-me {
+    margin-left: 25%;
+    margin-right: 25%;
   }
 }
 /*# sourceMappingURL=main.css.map */
