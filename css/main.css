@@ -523,6 +523,8 @@ section.social-media li a:hover {
     font-size: 0.9em;
     padding: 0.25em;
     text-decoration: none;
+  }
+  nav .primary-nav a {
     color: black;
   }
   nav .secondary-nav {
@@ -970,7 +972,11 @@ section.social-media li a:hover {
     font-size: 1.4em;
   }
   nav {
+    margin-top: 0.4em;
     margin-right: 15%;
+  }
+  nav a {
+    color: #27292b;
   }
   .hero {
     margin: 12em 0 10em 0;
