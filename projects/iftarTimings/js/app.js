@@ -1,4 +1,5 @@
-var ramadan2021timings = [{"Day":"Wednesday","Date":"April 14","Ramadan":1,"Sehri":"4:37 AM","Iftar":"6:37 PM"},
+var ramadan2021timings = [
+{"Day":"Wednesday","Date":"April 14","Ramadan":1,"Sehri":"4:37 AM","Iftar":"6:37 PM"},
 {"Day":"Thursday","Date":"April 15","Ramadan":2,"Sehri":"4:36 AM","Iftar":"6:38 PM"},
 {"Day":"Friday","Date":"April 16","Ramadan":3,"Sehri":"4:36 AM","Iftar":"6:38 PM"},
 {"Day":"Saturday","Date":"April 17","Ramadan":4,"Sehri":"4:35 AM","Iftar":"6:38 PM"},
@@ -49,46 +50,141 @@ const nextIftarTime = document.querySelector("#iftartimenext");
 const nextdayselect = document.querySelector(".nextdayselect");
 const previousdayselect = document.querySelector(".previousdayselect");
 
-console.log(TodayDateRamadan.textContent)
+// var today = new Date();
+// var utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+// var dd = parseInt(String(today.getDate()).padStart(2, '0'));
+// var mm = parseInt(String(today.getMonth() + 1).padStart(2, '0'));
+// var yyyy = today.getFullYear();
+
+// RozaNumber = parseInt(TodayDateRamadan.textContent)
+
+// if (yyyy = '2021' && mm <= 4 && dd < 14) 
+// {
+//     RozaNumber = 1;
+//     updateValues(RozaNumber);
+// } else if (yyyy = '2021' && mm >= 5 && dd >= 14) {
+//     RozaNumber = 30;
+//     updateValues(RozaNumber);
+// } else if (mm == 4) {
+//     RozaNumber = dd - 13;
+// } else {
+//     RozaNumber = dd + 17;
+// }
+
+function setInitialValues() {
+    var today = new Date();
+    var utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+    var dd = parseInt(String(today.getDate()).padStart(2, '0'));
+    var mm = parseInt(String(today.getMonth() + 1).padStart(2, '0'));
+    var yyyy = today.getFullYear();
+
+    RozaNumber = parseInt(TodayDateRamadan.textContent)
+
+    if (yyyy = '2021' && mm <= 4 && dd < 14) 
+    {
+        RozaNumber = 1;
+        updateValues(RozaNumber);
+        return RozaNumber
+    } else if (yyyy = '2021' && mm >= 5 && dd >= 14) {
+        RozaNumber = 30;
+        updateValues(RozaNumber);
+        return RozaNumber
+    } else if (mm == 4) {
+        RozaNumber = dd - 13;
+        updateValues(RozaNumber);
+        return RozaNumber
+    } else {
+        RozaNumber = dd + 17;
+        updateValues(RozaNumber);
+        return RozaNumber
+    }
+}
+
+RozaNumber = setInitialValues()
+
 console.log(`${ramadan2021timings[TodayDateRamadan.textContent-1].Sehri} to ${ramadan2021timings[TodayDateRamadan.textContent-1].Iftar}`)
 
-RozaNumber = parseInt(TodayDateRamadan.textContent)
+function updateValues(RozaNumber) {
+    
+    TodayDateRamadan.textContent = RozaNumber;
+
+    if (RozaNumber == 1) {
+            // Main Card Update
+        TodayDateEnglish.textContent = ramadan2021timings[RozaNumber-1].Date; 
+        TodaySuhoorTime.textContent = ramadan2021timings[RozaNumber-1].Sehri;
+        TodayIftarTime.textContent = ramadan2021timings[RozaNumber-1].Iftar;
+
+        // Previous Day Timings Update
+        previousDateEnglish.textContent = ramadan2021timings[RozaNumber-1].Date; 
+        previousSuhoorTime.textContent = ramadan2021timings[RozaNumber-1].Sehri;
+        previousIftarTime.textContent = ramadan2021timings[RozaNumber-1].Iftar;
+
+        // Next Day Timings Update
+        nextDateEnglish.textContent = ramadan2021timings[RozaNumber].Date; 
+        nextSuhoorTime.textContent = ramadan2021timings[RozaNumber].Sehri;
+        nextIftarTime.textContent = ramadan2021timings[RozaNumber].Iftar;
+
+        //disable Previous Day button
+        previousdayselect.classList.add('disabled')
+        previousdayselect.classList.add('disablebutton')
+
+    }
+    else if (RozaNumber == 30) {
+        // Main Card Update
+        TodayDateEnglish.textContent = ramadan2021timings[RozaNumber-1].Date; 
+        TodaySuhoorTime.textContent = ramadan2021timings[RozaNumber-1].Sehri;
+        TodayIftarTime.textContent = ramadan2021timings[RozaNumber-1].Iftar;
+
+        // Previous Day Timings Update
+        previousDateEnglish.textContent = ramadan2021timings[RozaNumber-2].Date; 
+        previousSuhoorTime.textContent = ramadan2021timings[RozaNumber-2].Sehri;
+        previousIftarTime.textContent = ramadan2021timings[RozaNumber-2].Iftar;
+
+        // Next Day Timings Update
+        nextDateEnglish.textContent = ramadan2021timings[RozaNumber-1].Date; 
+        nextSuhoorTime.textContent = ramadan2021timings[RozaNumber-1].Sehri;
+        nextIftarTime.textContent = ramadan2021timings[RozaNumber-1].Iftar;
+
+        //disable Previous Day button
+        nextdayselect.classList.add('disabled')
+        nextdayselect.classList.add('disablebutton')
+
+    } else {
+
+        nextdayselect.classList.remove('disabled')
+        nextdayselect.classList.remove('disablebutton')
+        previousdayselect.classList.remove('disabled')
+        previousdayselect.classList.remove('disablebutton')
+
+        TodayDateEnglish.textContent = ramadan2021timings[RozaNumber-1].Date; 
+        TodaySuhoorTime.textContent = ramadan2021timings[RozaNumber-1].Sehri;
+        TodayIftarTime.textContent = ramadan2021timings[RozaNumber-1].Iftar;
+    
+        previousDateEnglish.textContent = ramadan2021timings[RozaNumber-2].Date; 
+        previousSuhoorTime.textContent = ramadan2021timings[RozaNumber-2].Sehri;
+        previousIftarTime.textContent = ramadan2021timings[RozaNumber-2].Iftar;
+    
+        nextDateEnglish.textContent = ramadan2021timings[RozaNumber].Date; 
+        nextSuhoorTime.textContent = ramadan2021timings[RozaNumber].Sehri;
+        nextIftarTime.textContent = ramadan2021timings[RozaNumber].Iftar;
+
+    }
+}
 
 nextdayselect.addEventListener('click', function() {
     
     if (RozaNumber < 30) {
         RozaNumber += 1;
-        TodayDateRamadan.textContent = RozaNumber;
+        updateValues(RozaNumber)
     }
 
-    TodayDateEnglish.textContent = ramadan2021timings[RozaNumber-1].Date; 
-    TodaySuhoorTime.textContent = ramadan2021timings[RozaNumber-1].Sehri;
-    TodayIftarTime.textContent = ramadan2021timings[RozaNumber-1].Iftar;
-
-    previousDateEnglish.textContent = ramadan2021timings[RozaNumber-2].Date; 
-    previousSuhoorTime.textContent = ramadan2021timings[RozaNumber-2].Sehri;
-    previousIftarTime.textContent = ramadan2021timings[RozaNumber-2].Iftar;
-
-    nextDateEnglish.textContent = ramadan2021timings[RozaNumber].Date; 
-    nextSuhoorTime.textContent = ramadan2021timings[RozaNumber].Sehri;
-    nextIftarTime.textContent = ramadan2021timings[RozaNumber].Iftar;
 })
 
 previousdayselect.addEventListener('click', function() {
     if (RozaNumber > 1) {
         RozaNumber = RozaNumber - 1;
         TodayDateRamadan.textContent = RozaNumber;
+        updateValues(RozaNumber)
     }
 
-    TodayDateEnglish.textContent = ramadan2021timings[RozaNumber-1].Date; 
-    TodaySuhoorTime.textContent = ramadan2021timings[RozaNumber-1].Sehri;
-    TodayIftarTime.textContent = ramadan2021timings[RozaNumber-1].Iftar;
-
-    previousDateEnglish.textContent = ramadan2021timings[RozaNumber-2].Date; 
-    previousSuhoorTime.textContent = ramadan2021timings[RozaNumber-2].Sehri;
-    previousIftarTime.textContent = ramadan2021timings[RozaNumber-2].Iftar;
-
-    nextDateEnglish.textContent = ramadan2021timings[RozaNumber].Date; 
-    nextSuhoorTime.textContent = ramadan2021timings[RozaNumber].Sehri;
-    nextIftarTime.textContent = ramadan2021timings[RozaNumber].Iftar;
 })

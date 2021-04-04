@@ -37,17 +37,22 @@ body {
         
         #todaydateEng{
             color: rgb(184, 184, 184);
+            margin-top: 0.8em;
         }
 
         .Ramadancardlabel {
             text-transform: uppercase;
             font-weight: bold;
             font-size: 1.1em;
+
+            margin-top: 0.7em;
         }
 
         #todaydateRamadan{
             font-size: 3em;
             font-weight: light;
+            
+            margin-bottom: 0.6em;
         }
 
         .sehritime{
@@ -100,18 +105,30 @@ body {
                 color: green;
             }
         }
-
-
         
-
         button {
-            width: 40%;
+            width: 45%;
             display: inline-block;
-
+            
             font-size: 0.8em;
+            
+            &:hover {
+                transform: translateY(-1px) scale(1.01);
+            }
         }
-    }
 
+        .disablebutton {
+            background-color: rgb(196, 196, 196);
+            color: rgb(117, 117, 117);
+            border: none;
+    
+            &:hover {
+                transform: none;
+            }
+        }
+
+    }
+    
     .previousday {
         margin-left: 7%;
         display: inline-block;
@@ -136,6 +153,10 @@ body {
             font-size: 0.9em;
         }
 
+        #timeconnectorprevious {
+            display: inline-block;
+            font-size: 0.9em;    
+        }
 
     }
 
@@ -161,6 +182,11 @@ body {
             display: inline-block;
             font-size: 0.9em;
         }
+
+        #timeconnectornext {
+            display: inline-block;
+            font-size: 0.9em;    
+        }
     }
 }
 
@@ -171,4 +197,44 @@ body {
     margin: 3em 0;
     margin-right: 10%;
 
+}
+
+
+@media only screen and (min-width: 600px) {
+    .headerimg {
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+        }
+    }
+
+    .container {
+        width: 60%;
+
+        .timingcard {
+
+            .iftartime {
+                text-align: right;
+                display: inline-block;
+                width: 35%;
+                
+                margin: 0.5em 2em 0.5em 0em;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1001px) {
+    .headerimg {
+        img {
+            width: 50%;
+            z-index: -1;
+        }
+    }
+
+    .container {
+        width: 30%;
+    }
 }
