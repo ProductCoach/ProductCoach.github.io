@@ -14,9 +14,20 @@ body {
 }
 
 .container .heading {
-  padding: 2em 0 0 1em;
+  padding: 1em 0 0 1em;
   font-size: 0.95em;
   color: #A38EE8;
+}
+
+.container .dropdownMenu {
+  padding: 0.2em 0 0 1em;
+  font-size: 0.8em;
+  margin-top: 2em;
+}
+
+.container .dropdownMenu p {
+  display: inline-block;
+  margin: 0;
 }
 
 .container .subheading {
@@ -182,6 +193,47 @@ body {
   margin-right: 10%;
 }
 
+.sehridua {
+  text-align: center;
+  font-size: 0.7em;
+  padding: 2em 0;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #d6d6d6;
+}
+
+.sehridua .sdualabel {
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.sehridua .sduatext {
+  margin: 0.5em 0;
+  font-size: 1.5em;
+}
+
+.iftardua {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 0.7em;
+  padding: 2em 0;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #d6d6d6;
+}
+
+.iftardua .idualabel {
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.iftardua .iduatext {
+  margin: 0.5em 0;
+  font-size: 1.5em;
+}
+
 @media only screen and (min-width: 600px) {
   .headerimg img {
     display: block;
@@ -198,6 +250,9 @@ body {
     width: 35%;
     margin: 0.5em 2em 0.5em 0em;
   }
+  .sehridua, .iftardua {
+    width: 45%;
+  }
 }
 
 @media only screen and (min-width: 1001px) {
@@ -206,6 +261,9 @@ body {
     z-index: -1;
   }
   .container {
+    width: 30%;
+  }
+  .sehridua, .iftardua {
     width: 30%;
   }
 }
