@@ -25,8 +25,13 @@ var select = document.getElementById('ddm');
 select.onchange = function() {
     var input = select.value;
     console.log(input)
-    locationselected.textContent = input + ", India";   
-    cityselected = input;
+    if (input == "Southampton") {
+        locationselected.textContent = input + ", UK";
+        cityselected = input;
+    } else {
+        locationselected.textContent = input + ", India";
+        cityselected = input;
+    }
 
     testMultiCity(RozaNumber, cityselected);
 }
@@ -93,13 +98,21 @@ function testMultiCity(RozaNumber, cityselected) {
             RozaNum = RozaNumber + 180;
             updateValues(RozaNum)
             break;
+        case "Southampton":
+            RozaNum = RozaNumber + 211;
+            updateValues(RozaNum)
+            break;
     }
 }
 
 
 function updateValues(RozaNumber) {
     
-    TodayDateRamadan.textContent = (RozaNumber % 30);
+    if (RozaNumber % 30 == 0) {
+        TodayDateRamadan.textContent = 30;
+    } else {
+        TodayDateRamadan.textContent = (RozaNumber % 30);
+    }
 
     if (RozaNumber % 30 == 1) {
             // Main Card Update
