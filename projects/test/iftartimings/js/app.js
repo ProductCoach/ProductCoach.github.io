@@ -33,27 +33,36 @@ const successfulLookup = async (position) => {
     var result = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=b014fe37100549f9b34e446086fcbce5`)
     .then(response => response.json());
 
-    city_auto = result.results[0].components.state_district;
+    city_auto = result.results[0].components.city;
     country_auto = result.results[0].components.country;
-
-    if (all_cities.includes(city_auto)) {
-        cityselected = city_auto;
-        countryselected = country_auto;
-        console.log(cityselected, RozaNumber);
+    console.log(result.results[0].components);
+    
+    try {
+        if (city_auto.includes("Trichy")){
+            cityselected = "Trichy";
+            countryselected = country_auto;
+        } else if (all_cities.includes(city_auto)) {
+            cityselected = city_auto;
+            countryselected = country_auto;
+            console.log(cityselected, RozaNumber);
+        } else {
+            window.alert(`Sorry, your city ${city_auto} is not available yet. We're working on adding more cities. For now, you can check timings for other cities.`);
+        }
         locationselected.textContent = cityselected + ", " + countryselected;
         testMultiCity(RozaNumber, cityselected);
-    } else {
-        window.alert(`Sorry, your city ${city_auto} is not available yet. We're working on adding more cities. For now, you can check timings for other cities.`);
+    } catch {
+        locationselected.textContent = cityselected + ", " + countryselected;
+        testMultiCity(RozaNumber, cityselected);
     }
+
 }
 
 if (window.navigator.geolocation) {
     // Geolocation available
     navigator.geolocation.getCurrentPosition(successfulLookup, console.log("ERROR"));
-    // console.log(results[0]);
-    // console.log(`Your location is ${city_auto}, ${country_auto}`);
 }
 
+// On changing city from dropdown
 select.onchange = function() {
     var input = select.value;
     console.log(input)
@@ -68,6 +77,7 @@ select.onchange = function() {
     testMultiCity(RozaNumber, cityselected);
 }
 
+// Initialize date
 function setInitialValues() {
     var today = new Date();
     var utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');
@@ -100,6 +110,7 @@ function setInitialValues() {
 RozaNumber = setInitialValues()
 var RozaNum = 0;
 
+// Set cities
 function testMultiCity(RozaNumber, cityselected) {
     switch(cityselected) {
         case "Hyderabad":
