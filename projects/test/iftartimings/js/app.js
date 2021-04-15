@@ -43,7 +43,7 @@ const successfulLookup = async (position) => {
         locationselected.textContent = cityselected + ", " + countryselected;
         testMultiCity(RozaNumber, cityselected);
     } else {
-        window.alert("Sorry, your city is not available yet. We're working on adding more cities. For now, you can check timings for other cities.");
+        window.alert(`Sorry, your city ${city_auto} is not available yet. We're working on adding more cities. For now, you can check timings for other cities.`);
     }
 }
 
