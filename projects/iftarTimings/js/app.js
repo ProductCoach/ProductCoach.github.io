@@ -17,7 +17,10 @@ const nextIftarTime = document.querySelector("#iftartimenext");
 const nextdayselect = document.querySelector(".nextdayselect");
 const previousdayselect = document.querySelector(".previousdayselect");
 
-const locationselected = document.querySelector(".subheading")
+const locationselected = document.querySelector(".subheading");
+
+const duaarequestnames = document.querySelector(".duaa");
+
 
 var cityselected = "Hyderabad" //default city is Hyderabad
 var select = document.getElementById('ddm');
@@ -27,6 +30,7 @@ select.onchange = function() {
     console.log(input)
     if (input == "Southampton") {
         locationselected.textContent = input + ", UK";
+        duaarequestnames.innerHTML = "Request for Duaa from <br> Faiz Darvesh, Haniah, Ammaar and Hibah";
         cityselected = input;
     } else {
         locationselected.textContent = input + ", India";
@@ -100,6 +104,10 @@ function testMultiCity(RozaNumber, cityselected) {
             break;
         case "Southampton":
             RozaNum = RozaNumber + 211;
+            updateValues(RozaNum)
+            break;
+        case "Mumbai":
+            RozaNum = RozaNumber + 240;
             updateValues(RozaNum)
             break;
     }
