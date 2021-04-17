@@ -35,6 +35,7 @@ select.onchange = function() {
     } else {
         locationselected.textContent = input + ", India";
         cityselected = input;
+        duaarequestnames.innerHTML = "Request for Duaa from <br> Faiz Darvesh";
     }
 
     testMultiCity(RozaNumber, cityselected);
