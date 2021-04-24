@@ -111,6 +111,10 @@ function testMultiCity(RozaNumber, cityselected) {
             RozaNum = RozaNumber + 240;
             updateValues(RozaNum)
             break;
+        case "Delhi":
+            RozaNum = RozaNumber + 270;
+            updateValues(RozaNum)
+            break;
     }
 }
 
