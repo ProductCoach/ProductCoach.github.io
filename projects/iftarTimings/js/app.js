@@ -21,6 +21,8 @@ const locationselected = document.querySelector(".subheading");
 
 const duaarequestnames = document.querySelector(".duaa");
 
+const EidWishOverlay = document.querySelector(".eidwishes");
+
 
 var cityselected = "Hyderabad" //default city is Hyderabad
 var select = document.getElementById('ddm');
@@ -58,6 +60,7 @@ function setInitialValues() {
     } else if (yyyy = '2021' && mm >= 5 && dd >= 14) {
         RozaNumber = 30;
         updateValues(RozaNumber);
+        EidWishOverlay.style.display = "block";
         return RozaNumber
     } else if (mm == 4) {
         RozaNumber = dd - 13;
@@ -203,4 +206,8 @@ previousdayselect.addEventListener('click', function() {
         TodayDateRamadan.textContent = RozaNumber;
         testMultiCity(RozaNumber, cityselected)
     }
+})
+
+EidWishOverlay.addEventListener('click', function() {
+    EidWishOverlay.style.display = "none";
 })
