@@ -178197,5 +178197,5 @@ var wordlistDesc = wordlist.sort(function(a, b) {
 
 // break shortest fifty thousand words into easy wordlist
 wordlist_easy = wordlistDesc.slice(-50000,);
-console.log(wordlist_easy);
+// console.log(wordlist_easy);
 

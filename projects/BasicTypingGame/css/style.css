@@ -7,19 +7,24 @@ body {
   max-width: 80vw;
 }
 
-.nav-link {
+header h3 {
+  font-size: 1.5rem;
+  margin: 0 0.75rem;
+}
+
+header .nav-link {
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
   margin: 0 0.75rem;
 }
 
-.nav-link.active {
+header .nav-link.active {
   color: white;
   border-bottom: 0.2rem solid;
   border-bottom-color: white;
 }
 
-.nav-link:hover {
+header .nav-link:hover {
   color: rgba(255, 255, 255, 0.9);
   font-weight: 700;
   border-bottom: 0.2rem solid;
@@ -41,8 +46,12 @@ body {
   display: none;
   z-index: 3;
   position: absolute;
-  left: 30%;
+  left: 25%;
   top: 25%;
+}
+
+#highscore #nameinput {
+  display: none;
 }
 
 #highscore img {

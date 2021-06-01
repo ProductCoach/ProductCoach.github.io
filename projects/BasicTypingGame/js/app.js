@@ -1,6 +1,7 @@
 // Initiialize Player score and time
 var score = 0;
-var HighScore = [3, 2, 1];
+var HighScore = [{'score': 3, 'player':'test1'}, {'score': 2, 'player':'test2'}, {'score': 1, 'player':'test3'}];
+// console.log(`${HighScore[0].score} by ${HighScore[0].player}`);
 var seconds=30;
 var timer;
 
@@ -9,8 +10,11 @@ document.getElementById('tvalue').innerHTML = seconds;
 
 // Identify DOM elements
 const scoreText = document.getElementsByClassName('svalue');
+const scoreBar = document.getElementById('scorebar');
 const targetWord = document.getElementsByClassName('enemyName');
 const highscoreModal = document.getElementById('highscore');
+const playerNameprompt = document.getElementById('nameinput');
+const playerNameArea = document.getElementById('nameInput'); //Capital I is for the area
 const overlay = document.getElementById('overlay');
 const currentscore = document.getElementById('currentscore');
 const inputText = document.getElementById('inputText');
@@ -18,12 +22,18 @@ const inputText = document.getElementById('inputText');
 var hscore1 = document.getElementById('score1');
 var hscore2 = document.getElementById('score2');
 var hscore3 = document.getElementById('score3');
+
+var hplayer1 = document.getElementById('user1');
+var hplayer2 = document.getElementById('user2');
+var hplayer3 = document.getElementById('user3');
 // console.log(inputText);
-// console.log(currentscore.innerText)
+// console.log(currentscore.innerText);
+updateHighscore();
 
 //Show a random word from wordlist
 const wordlistLength = wordlist.length;
 changeWord();
+markProgress();
 
 // Check for key presses
 var wordMatch=false; //Test to see if work types matches the 'enemy' name
@@ -43,6 +53,7 @@ function matchWord(searchstring) {
         wordMatch = true;
         updateScore();
         changeWord();
+        markProgress();
         inputText.value = '';
     }
 
@@ -76,6 +87,7 @@ function updateTimer() {
     } else {
        clearInterval(timer);
        testHighscore();
+       updateHighscore();
     //    alert("Your score is "+score);
        inputText.disabled = true;
     }
@@ -91,62 +103,61 @@ function resetTimer() {
     inputText.disabled = false;
 }
 
-
 function testHighscore(){
-    highscoreModal.style.display = "block";
-    overlay.style.display = "block";
-
     for (k=0; k < 3; k++) {
-        if (score > HighScore[k]) {
-            HighScore.splice(k, 0, score);
-            console.log("High score");
-            currentscore.innerHTML = "Well done! Your score is " + score; 
+        if (score > HighScore[k].score) {
+            playerName = prompt("High score! What's your name?")
+            var newEntry = {'score': score, 'player':playerName};
+            HighScore.splice(k, 0, newEntry);
+            currentscore.innerHTML = "New High Score! Your score is " + score;
+            // playerNameprompt.style.display = "block";
             break;
+        } else {
+            currentscore.innerHTML = `Your score is ${score}. Try again?`;
         }
     }
-
-    hscore1.innerHTML = HighScore[0];
-    hscore2.innerHTML = HighScore[1];
-    hscore3.innerHTML = HighScore[2];
 }
 
+function updateHighscore(){
+    hscore1.innerHTML = HighScore[0].score;
+    hscore2.innerHTML = HighScore[1].score;
+    hscore3.innerHTML = HighScore[2].score;
+    
+    hplayer1.innerHTML = HighScore[0].player;
+    hplayer2.innerHTML = HighScore[1].player;
+    hplayer3.innerHTML = HighScore[2].player;
+    // console.log(HighScore);
 
+    highscoreModal.style.display = "block";
+    overlay.style.display = "block";
+}
+
+// Update progress bar based on score - jQuery
+function markProgress(){
+    console.log(score);
+    progressbarwidth = score * 10;
+    
+    if(score < 10){
+        $(".progress-bar").css("width", progressbarwidth + "%");
+    } else {
+        $(".progress-bar").css("width", "100%");
+    }
+    // Wait for sometime before running this script again
+}
+
+// var inputNameValue;
+
+// playerNameArea.addEventListener('keyup', function(e) {
+//     inputNameValue = e.target.value;
+//     //listens for you to press the ENTER key, at which point your web address will change to the one you have input in the search box
+//     if (e.keyCode == 13) {
+//        inputNameValue;
+//     }
+// })
+
+// Remove highscore overlay
 overlay.addEventListener('click', function() {
+    playerNameprompt.style.display = "none";
     highscoreModal.style.display = "none";
     overlay.style.display = "none";
 })
-
-// function SearchList(searchstring) {
-
-//     lower_searchstring = searchstring.toLowerCase();
-    
-//     li = document.getElementsByTagName("li");
-//     console.log('li')
-
-//     for (j = 0; j < li.length; j++) {
-//         if (li[j].innerHTML.toLowerCase().indexOf(lower_searchstring) > -1) {
-//             found = true;
-//         }
-//         if (found) {
-//             li[j].style.display = "";
-//             found = false;
-//         } else {
-//             li[j].style.display = "none";
-//         }
-//     }
-// }
-
-
-
-
-
-
-// document.getElementById("textarea").onkeypress = function() {
-//   if(!timer) {
-//     timer = window.setInterval(function() { 
-//       myFunction();
-//     }, 1000); // every second
-//   }
-// } 
-
-// document.getElementById("timer").innerHTML="1:00"; 
