@@ -28,7 +28,7 @@ var hplayer2 = document.getElementById('user2');
 var hplayer3 = document.getElementById('user3');
 // console.log(inputText);
 // console.log(currentscore.innerText);
-updateHighscore();
+// updateHighscore();
 
 //Show a random word from wordlist
 const wordlistLength = wordlist.length;
