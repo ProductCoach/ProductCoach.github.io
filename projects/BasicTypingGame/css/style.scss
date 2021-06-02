@@ -9,9 +9,15 @@ body {
 
 header {
 
-    h3 {
-        font-size: 1.5rem;
+    p {
+        font-size: 1.2rem;
         margin: 0 0.75rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.8);
+
+        span {
+            color: skyblue;
+        }
     }
 
     .nav-link {
@@ -45,6 +51,11 @@ header {
     width: 100%;
     z-index: -3;
     opacity: 8%;
+
+    // .imageBG {
+    //     width: auto;
+    //     left: 0%;
+    // }
 }
 
 #highscore {

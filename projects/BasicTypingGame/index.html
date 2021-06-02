@@ -19,12 +19,12 @@
     <title>Type to win!</title>
 </head>
 <body class="text-center">
-    <div class="navbar navbar-dark bg-dark d-flex w-100 h-100 p-2 mx-auto flex-column">
+    <div class="navbar navbar-dark bg-dark d-flex w-100 h-100 p-1 mx-auto flex-column">
         <header class="cover-container w-100 h-100 text-white">
-            <p class="float-md-start">type<span>win</span></p>
+            <p class="float-md-start p-2">type<span>win</span></p>
             <nav class=" nav nav-masthead justify-content-center float-md-end">
-                <a href="#" class="nav-link">Sign in</a>
-                <a href="#" class="nav-link">Register</a>
+                <a href="#" class="nav-link p-2">Sign in</a>
+                <a href="#" class="nav-link p-2">Register</a>
             </nav>
         </header>
     
@@ -53,13 +53,14 @@
         <div class="inputarea col-8 offset-2 col-sm-6 offset-sm-3 list mt-5">
             <h6 class="mb-3 text-start">Type the word shown above</h6>
             <input type="text" class="inputBox form-control mb-4" id="inputText" placeholder="Enter the words!">
-            <button class="btn btn-primary mb-3">Restart Game</button>
-            <button class="btn mb-3" type="reset" onclick="resetTimer()">Reset Timer</button>
+            <button class="btn btn-primary mb-3" onclick="resetTimer()">Restart Game</button>
+            <!-- <button class="btn mb-3" type="reset">Reset Timer</button> -->
         </div>
 
         <div class="cover-container w-100 h-100 mx-auto mt-5 text-center">
             <h1 class="svalue">0</h1>
             <h5 class="score pb-4"><strong>Score</strong></h5>
+            <p class="text-start mb-1">Level <em class="levelCount">1</em></p>
             <div class="progress">
                 <div id="scorebar" class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
@@ -67,7 +68,7 @@
     </div>
 
     <div class="bg-image">
-        <img src="images/keyboard-bg.jpg" alt="keyboard-bg" style="width: 100%">
+        <img class="imageBG" src="images/keyboard-bg.jpg" alt="keyboard-bg" style="width: 50%">
     </div>
 
     <div id="highscore" class="card" style="width: 50%">
@@ -87,6 +88,7 @@
     </div>
     <div id="overlay"></div>
 
+    <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
     <script src="js/wordlist.js"></script>
     <script src="js/app.js"></script>
 </body>

@@ -7,9 +7,15 @@ body {
   max-width: 80vw;
 }
 
-header h3 {
-  font-size: 1.5rem;
+header p {
+  font-size: 1.2rem;
   margin: 0 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+header p span {
+  color: skyblue;
 }
 
 header .nav-link {

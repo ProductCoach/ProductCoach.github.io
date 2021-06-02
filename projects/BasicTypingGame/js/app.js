@@ -1,10 +1,13 @@
 // Initiialize Player score and time
 var score = 0;
 var HighScore = [{'score': 3, 'player':'test1'}, {'score': 2, 'player':'test2'}, {'score': 1, 'player':'test3'}];
+var highscoreNew = JSON.parse(localStorage.getItem("highScores")) || HighScore;
 // console.log(`${HighScore[0].score} by ${HighScore[0].player}`);
 var seconds=30;
 var timer;
+var levelValue = 1;
 
+// localStorage.setItem("highScores", JSON.stringify(HighScore));
 document.getElementById('tvalue').innerHTML = seconds;
 // console.log(document.getElementById('tvalue').innerHTML);
 
@@ -18,6 +21,7 @@ const playerNameArea = document.getElementById('nameInput'); //Capital I is for 
 const overlay = document.getElementById('overlay');
 const currentscore = document.getElementById('currentscore');
 const inputText = document.getElementById('inputText');
+const level = document.getElementsByClassName('levelCount');
 
 var hscore1 = document.getElementById('score1');
 var hscore2 = document.getElementById('score2');
@@ -53,8 +57,8 @@ function matchWord(searchstring) {
         wordMatch = true;
         updateScore();
         changeWord();
-        markProgress();
         inputText.value = '';
+        markProgress();
     }
 
 }
@@ -94,22 +98,32 @@ function updateTimer() {
 }
 
 function resetTimer() {
-    seconds = 30;
+    // reset score
     score = 0;
     scoreText[0].innerText = score;
+    
+    // reset time
     timer=false;
-    setTimer();
+    seconds = 30;
     document.getElementById('tvalue').innerHTML = seconds;
+    setTimer();
+    
+    // reset ProgressBar
+    markProgress();
+    
+    // reset input area
     inputText.disabled = false;
+    inputText.value = '';
 }
 
 function testHighscore(){
     for (k=0; k < 3; k++) {
-        if (score > HighScore[k].score) {
+        if (score > highscoreNew[k].score) {
             playerName = prompt("High score! What's your name?")
             var newEntry = {'score': score, 'player':playerName};
-            HighScore.splice(k, 0, newEntry);
+            highscoreNew.splice(k, 0, newEntry);
             currentscore.innerHTML = "New High Score! Your score is " + score;
+            localStorage.setItem("highScores", JSON.stringify(highscoreNew));
             // playerNameprompt.style.display = "block";
             break;
         } else {
@@ -118,14 +132,14 @@ function testHighscore(){
     }
 }
 
-function updateHighscore(){
-    hscore1.innerHTML = HighScore[0].score;
-    hscore2.innerHTML = HighScore[1].score;
-    hscore3.innerHTML = HighScore[2].score;
+function updateHighscore(){    
+    hscore1.innerHTML = highscoreNew[0].score;
+    hscore2.innerHTML = highscoreNew[1].score;
+    hscore3.innerHTML = highscoreNew[2].score;
     
-    hplayer1.innerHTML = HighScore[0].player;
-    hplayer2.innerHTML = HighScore[1].player;
-    hplayer3.innerHTML = HighScore[2].player;
+    hplayer1.innerHTML = highscoreNew[0].player;
+    hplayer2.innerHTML = highscoreNew[1].player;
+    hplayer3.innerHTML = highscoreNew[2].player;
     // console.log(HighScore);
 
     highscoreModal.style.display = "block";
@@ -135,12 +149,14 @@ function updateHighscore(){
 // Update progress bar based on score - jQuery
 function markProgress(){
     console.log(score);
-    progressbarwidth = score * 10;
+    progressbarwidth = (score % 10) * 10;
     
-    if(score < 10){
+    if(score % 10 || score == 0){
         $(".progress-bar").css("width", progressbarwidth + "%");
     } else {
         $(".progress-bar").css("width", "100%");
+        levelValue = levelValue + 1;
+        level = levelValue;
     }
     // Wait for sometime before running this script again
 }
