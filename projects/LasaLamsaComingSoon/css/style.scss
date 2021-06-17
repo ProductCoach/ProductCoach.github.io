@@ -1,0 +1,311 @@
+body {
+    height: 100vh;
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    // background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url("https://images.unsplash.com/photo-1561518801-3a7645cf0256?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+    // background-size: cover;
+    /* background-position: center; */
+    // box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+
+.cover-container {
+    max-width: 80vw;
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    margin-top: 1rem;
+
+    .logo {
+        width: 150px;
+    }
+
+    .emailLink {
+        margin-top: 0.5rem;
+        .emailLinkIcon {
+            width: 20px;
+            margin-right: 0.5rem;
+        }
+
+        .emailLinkText {
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: gray;
+        }
+
+    }
+
+    .hero {
+        display: flex;
+        margin-top: 1rem;
+
+        .heroText {
+            text-align: center;
+            margin-top: 2rem;
+
+            .titlePreface {
+                color: gray;
+                font-size: 1.05rem;
+                font-weight: 500;
+                margin-bottom: 0.25rem;
+            }
+
+            .titleText {
+                font-weight: 700;
+                font-size: 2.4rem;
+                line-height: 2.7rem;
+                color: rgb(95, 6, 6);
+                
+                margin-bottom: 0rem;
+                margin-bottom: 0rem;
+            }
+
+            .subtitleText {
+                color: gray;
+                font-weight: 400;
+                margin-top: 2.75rem;
+                margin-left: 0.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .emailLinkHero {
+                margin-top: 0.95rem;
+                margin-left: 0.25rem;
+
+                .emailLinkHeroIcon {
+                    width: 35px;
+                    margin-right: 1.2rem;
+                }
+        
+                .emailLinkHeroText {
+                    text-decoration: none;
+                    color: gray;
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                }
+        
+            }
+        }
+
+        .heroImage {
+            width: auto;
+            margin-left: -2rem;
+            z-index: -1;
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .footer {
+        .comingsoonText {
+            display: none;
+            font-size: 4rem;
+            margin-bottom: 0%;
+            font-weight: 600;
+            color: #E6E6E6;
+        }
+    }
+}
+
+@media only screen and (min-width: 590px) {
+    .cover-container {
+        .hero {
+            .heroText {
+                .titlePreface {
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    margin-bottom: 0.25rem;
+                }
+    
+                .titleText {
+                    font-size: 3.0rem;
+                    line-height: 3.2rem;
+                    margin-bottom: 0rem;
+                }
+    
+                .subtitleText {
+                    color: gray;
+                    font-weight: 400;
+                    margin-top: 2.75rem;
+                    margin-left: 0.2rem;
+                    margin-bottom: 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+    body {
+        height: 100vh;
+        font-family: 'Poppins', 'Montserrat', sans-serif;
+    }
+    
+    .cover-container {
+        max-width: 80vw;
+        font-family: 'Poppins', 'Montserrat', sans-serif;
+        margin-top: 1rem;
+    
+        .logo {
+            width: 150px;
+        }
+    
+        .emailLink {
+            margin-top: 0.5rem;
+            .emailLinkIcon {
+                width: 20px;
+                margin-right: 0.5rem;
+            }
+    
+            .emailLinkText {
+                font-size: 0.9rem;
+                text-decoration: none;
+                color: gray;
+            }
+    
+        }
+    
+        .hero {
+            display: flex;
+            
+            .heroText {
+                text-align: left;
+    
+                .titlePreface {
+                    color: gray;
+                    font-weight: 700;
+                    margin-bottom: 0.25rem;
+                }
+    
+                .titleText {
+                    font-size: 3.2rem;
+                    font-weight: 700;
+                    color: rgb(95, 6, 6);
+                    line-height: 3.6rem;
+                    margin-bottom: 0rem;
+                }
+    
+                .subtitleText {
+                    color: gray;
+                    font-weight: 400;
+                    font-size: 0.95rem;
+                    margin-top: 1.75rem;
+                    margin-left: 0.2rem;
+                    margin-bottom: 0.5rem;
+                }
+    
+                .emailLinkHero {
+                    margin-top: 0.8rem;
+                    margin-left: 0.25rem;
+    
+                    .emailLinkHeroIcon {
+                        width: 30px;
+                        margin-right: 1.2rem;
+                    }
+            
+                    .emailLinkHeroText {
+                        text-decoration: none;
+                        color: gray;
+                        font-weight: 600;
+                    }
+            
+                }
+            }
+    
+            .heroImage {
+                width: auto;
+                margin-left: -2rem;
+                z-index: -1;
+                img {
+                    width: 140%;
+                }
+            }
+        }
+    
+        .footer {
+            .comingsoonText {
+                display: block;
+                font-size: 5rem;
+                font-weight: 600;
+                color: #E6E6E6;
+            }
+        }
+    }
+
+
+}
+
+@media only screen and (min-width: 1100px) {
+
+    .cover-container {
+        max-width: 70vw;
+        margin-top: 1.5rem;
+
+        .hero {
+            .heroImage {
+                img {
+                    width: 120%;
+                }
+            }
+
+            .heroText {
+                text-align: left;
+    
+                .titlePreface {
+                    color: gray;
+                    font-weight: 700;
+                    margin-bottom: 0.25rem;
+                }
+    
+                .titleText {
+                    font-size: 3.5rem;
+                    font-weight: 700;
+                    color: rgb(95, 6, 6);
+                    line-height: 3.6rem;
+                    margin-bottom: 0rem;
+                }
+    
+                .subtitleText {
+                    color: gray;
+                    font-weight: 400;
+                    margin-top: 1.75rem;
+                    margin-left: 0.2rem;
+                    margin-bottom: 0.5rem;
+                }
+    
+                .emailLinkHero {
+                    margin-top: 0.8rem;
+                    margin-left: 0.25rem;
+    
+                    .emailLinkHeroIcon {
+                        width: 30px;
+                        margin-right: 1.2rem;
+                    }
+            
+                    .emailLinkHeroText {
+                        text-decoration: none;
+                        color: gray;
+                        font-weight: 600;
+                    }
+            
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1500px) {
+
+    .cover-container {
+        max-width: 70vw;
+        margin-top: 1.5rem;
+
+        .hero {
+            .heroImage {
+                margin-left: 2rem;
+                img {
+                    width: 110%;
+                }
+            }
+        }
+    }
+}
